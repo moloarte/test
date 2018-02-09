@@ -21,9 +21,14 @@ resource "aws_security_group" "instance" {
   name = "example-policy"
 
   ingress {
-    from_port =  8080
-    to_port = 8080
+    from_port =  "${var.http_server_port}"
+    to_port = "${var.http_server_port}"
     protocol = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
+}
+
+variable "http_server_port" {
+  description = "port to connect"
+  default = "8080"
 }
