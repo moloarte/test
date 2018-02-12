@@ -8,4 +8,5 @@ terraform {
 
 module "wb_cluster" {
   source = "../../modules/services/wb/"
+  instance_type = "t2.micro"
 }
