@@ -89,8 +89,3 @@ resource "aws_launch_configuration" "example" {
     create_before_destroy = true
   }
 }
-
-variable "http_server_port" {
-  description = "port to connect"
-  default = "8080"
-}
