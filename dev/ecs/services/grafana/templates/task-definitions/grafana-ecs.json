@@ -1,0 +1,43 @@
+[
+    {
+        "essential": true,
+        "environment": [
+            {
+                "name": "SERVICE_REGION",
+                "value": "${region}"
+            },
+            {
+                "name": "SERVICE_NAME",
+                "value": "${env}-${service_name}"
+            },
+            {
+                "name": "GF_INSTALL_PLUGIN",
+                "value": "alexanderzobnin-zabbix-app"
+            }
+
+        ],
+        "portMappings": [
+            {
+                "hostPort": 3000,
+                "containerPort": 3000,
+                "protocol": "tcp"
+            }
+        ],
+        "mountPoints": [
+            {
+                "containerPath": "/rootfs",
+                "sourceVolume": "root"
+            },
+            {
+                "containerPath": "/grafana",
+                "sourceVolume": "grafana"
+            }
+
+        ],
+        "memory": 512,
+        "name": "${env}-${service_name}",
+        "cpu": 512,
+        "image": "grafana/grafana:4.6.3",
+        "family": "${env}-${service_name}"
+    }
+]

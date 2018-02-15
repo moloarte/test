@@ -1,3 +1,5 @@
+#!/bin/bash
+
 cat > index.html EOF<<
 <H1>${server_text}</H1>
 EOF

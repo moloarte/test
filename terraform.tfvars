@@ -9,4 +9,28 @@ terragrunt = {
       dynamodb_table = "signnow-test-dyno-table"
     }
   }
+
+  terraform {
+    extra_arguments "common_var" {
+      commands = [
+        "apply",
+        "plan",
+        "import",
+        "push",
+        "destroy",
+        "refresh",
+        "apply-all",
+        "destroy-all"
+
+      ]
+
+
+
+      arguments = [
+           "-var-file=${get_parent_tfvars_dir()}/common.tfvars"
+      ]
+
+    }
+  }
+
 }
